@@ -27,7 +27,7 @@ const Logger = require('@mojaloop/central-services-shared').Logger
 
 exports.plugin = {
   name: 'api routes',
-  register: function (server, options) {
+  register: function (server) {
     Glob.sync('*/routes.js', { cwd: __dirname, ignore: 'routes.js' })
       .forEach(x => {
         Logger.info(`Loading module: [${x}]`)
