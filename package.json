@@ -21,8 +21,8 @@
   "precommit": "pretest",
   "precommit.silent": true,
   "dependencies": {
-    "@mojaloop/central-services-error-handling": "file:../central-services-error-handling",
-    "@mojaloop/central-services-metrics": "file:../central-services-metrics",
+    "@mojaloop/central-services-error-handling": "5.2.0",
+    "@mojaloop/central-services-metrics": "5.2.0",
     "@mojaloop/central-services-shared": "5.2.0",
     "blipp": "3.1.2",
     "boom": "7.3.0",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "npm-run-all": "4.1.5",
-    "pre-commit": " 1.2.2",
+    "pre-commit": "1.2.2",
     "standard": "12.0.1"
   }
 }
