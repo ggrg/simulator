@@ -31,7 +31,7 @@ const transferState = ['RECEIVED', 'PENDING', 'ACCEPTED', 'PROCESSING', 'COMPLET
 module.exports = [
   {
     method: 'POST',
-    path: '/bulkTransfers',
+    path: '/{fspName}/bulkTransfers',
     handler: Handler.postBulkTransfers,
     config: {
       id: 'bulkTransfers',
@@ -58,6 +58,9 @@ module.exports = [
           traceparent: Joi.string().optional(),
           tracestate: Joi.string().optional()
         }).unknown(false).options({ stripUnknown: true }),
+        params: {
+          fspName: Joi.string().required().description('path')
+        },
         payload: {
           bulkTransferId: Joi.string().guid().required().description('Id of bulk transfer').label('@ Bulk Transfer Id must be in a valid GUID format. @'),
           bulkQuoteId: Joi.string().guid().required().description('Id of bulk transfer').label('@ Bulk Transfer Id must be in a valid GUID format. @'),
@@ -92,7 +95,7 @@ module.exports = [
   },
   {
     method: 'PUT',
-    path: '/bulkTransfers/{id}',
+    path: '/{fspName}/bulkTransfers/{id}',
     handler: Handler.putBulkTransfersById,
     config: {
       id: 'bulkTransfer_fulfilment',
@@ -117,6 +120,7 @@ module.exports = [
           tracestate: Joi.string().optional()
         }).unknown(false).options({ stripUnknown: true }),
         params: {
+          fspName: Joi.string().required().description('path'),
           id: Joi.string().required().description('path')
         },
         payload: {
